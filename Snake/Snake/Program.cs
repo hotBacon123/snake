@@ -10,28 +10,26 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            point p1 = new point();
-            p1.x = 1;
-            p1.y = 3;
-            p1.sym = '*';
 
-            p1.Draw();
+            Console.SetBufferSize(80, 25);
 
-            point p2 = new point();
-            p2.x = 4;
-            p2.y = 5;
-            p2.sym = '#';
+            hl upLine = new hl(0,78,0,'+'); ;
+            hl downLine = new hl(0, 78, 24, '+');
+            vl leftLine = new vl(0, 24, 0, '+');
+            vl rightLine = new vl(0, 24, 78, '+');
+            upLine.Drow();
+            downLine.Drow();
+            leftLine.Drow();
+            rightLine.Drow();
 
-            p2.Draw();
+            point p = new point(4, 5, '*');
+            snake snake = new snake(p, 4, direction.RIGHT);
+            snake.Drow();
 
             Console.ReadLine();
         }
 
-        static void Draw(int x,int y, char sym)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
-        }
+        
     }
 
 }
